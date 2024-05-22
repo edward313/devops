@@ -5,7 +5,7 @@
 notify_success:
     stage: notify
     script:
-      - curl "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh" | diff - syncdb
+      - sh "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh" 
     # when: on_success
 
 # notify_error:
