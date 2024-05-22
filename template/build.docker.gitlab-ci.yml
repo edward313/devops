@@ -17,5 +17,6 @@ build-image:
         --tag ${DOCKER_REPO}:${CI_COMMIT_SHA:0:8} .
     - docker image push ${DOCKER_REPO}:${CI_COMMIT_SHA:0:8}
     - docker image push ${DOCKER_CACHE_IMAGE}
+  
   only:
     - dev
