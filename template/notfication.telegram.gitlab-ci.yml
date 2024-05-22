@@ -1,0 +1,15 @@
+notify_success:
+    stage: notify
+    before_script:
+      - apk add --update curl && rm -rf /var/cache/apk/*
+    script:
+      - sh devops/notification.sh "success message ✅"
+    when: on_success
+
+notify_error:
+    stage: notify
+    before_script:
+      - apk add --update curl && rm -rf /var/cache/apk/*
+    script:
+      - sh devops/notification.telegram.sh "fail message ❌"
+    when: on_failure
