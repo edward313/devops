@@ -1,7 +1,4 @@
 
-
-
-
 notify_success:
     stage: notify
     script:
