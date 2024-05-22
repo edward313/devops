@@ -3,9 +3,9 @@ deploy:
   stage: deploy
   script:
     - chmod 400 $MASTER_SSH_KEY
-    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@14.225.210.81 "docker rm -f ${CI_PROJECT_NAME} || true"
-    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@14.225.210.81 "docker rmi \$(docker images -q ${DOCKER_REPO}) || true"
+    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@phatluu.website "docker rm -f ${CI_PROJECT_NAME} || true"
+    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@phatluu.website "docker rmi \$(docker images -q ${DOCKER_REPO}) || true"
     # deploy
-    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@14.225.210.81 "docker container run -d --name ${CI_PROJECT_NAME} --expose ${APP_DEV_PORT} --env SPRING_PROFILES_ACTIVE=dev --env "VIRTUAL_HOST=api-ec.phatluu.website" --env "LETSENCRYPT_HOST=api-ec.phatluu.website" $IMAGE_NAME:${CI_COMMIT_SHA:0:8}"
+    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@phatluu.website "docker container run -d --name ${CI_PROJECT_NAME} --expose ${APP_DEV_PORT} --env SPRING_PROFILES_ACTIVE=dev --env "VIRTUAL_HOST=api-ec.phatluu.website" --env "LETSENCRYPT_HOST=api-ec.phatluu.website" $IMAGE_NAME:${CI_COMMIT_SHA:0:8}"
   only:
     - dev
