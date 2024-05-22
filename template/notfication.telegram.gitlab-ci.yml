@@ -3,7 +3,7 @@ notify_success:
     stage: notify
     script:
       - wget https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh
-      - ls
+      - sh notification.sh
     # when: on_success
 
 # notify_error:
