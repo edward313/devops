@@ -1,5 +1,6 @@
 deploy:
-  stage: deploy   
+  image: kroniak/ssh-client
+  stage: deploy
   script:
     - chmod 400 $MASTER_SSH_KEY
     - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@14.225.210.81 "docker rm -f ${CI_PROJECT_NAME} || true"
