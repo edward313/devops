@@ -4,10 +4,8 @@
 
 notify_success:
     stage: notify
-    before_script:
-      - apk add --update curl && rm -rf /var/cache/apk/*
     script:
-      - wget -q -O- "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh" "success message ✅"
+      - curl "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh" | diff - syncdb
     # when: on_success
 
 # notify_error:
