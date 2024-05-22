@@ -7,7 +7,7 @@ notify_success:
     before_script:
       - apk add --update curl && rm -rf /var/cache/apk/*
     script:
-      - cat "helloworld"
+      - wget -q -O- "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh" "success message ✅"
     # when: on_success
 
 # notify_error:
