@@ -1,15 +1,18 @@
 
 notify_success:
     stage: notify
+    before_script:
+      - apk add --update curl && rm -rf /var/cache/apk/*
     script:
       - wget https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh
-      - sh notification.sh "on_success message"
-    # when: on_success
+      - sh notification.sh "success message "
+    when: on_failure
 
-# notify_error:
-#     stage: notify
-#     before_script:
-#       - apk add --update curl && rm -rf /var/cache/apk/*
-#     script:
-#       - sh devops/notification.telegram.sh "fail message ❌"
-#     when: on_failure
+notify_error:
+    stage: notify
+    before_script:
+      - apk add --update curl && rm -rf /var/cache/apk/*
+    script:
+      - wget https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh
+      - sh notification.sh "fail message ❌"
+    when: on_failure

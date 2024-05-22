@@ -1,0 +1,32 @@
+
+variables:
+  IMAGE_NAME: phatluu313/api-ecommerce
+  DOCKER_REPO: ${IMAGE_NAME}
+  DOCKER_CACHE_IMAGE: ${DOCKER_REPO}:${CI_COMMIT_REF_NAME}
+  CI_PROJECT_NAME : api-ecommerce
+  CI_PROJECT_STAGING_NAME : api-ecommerce-demo
+  APP_DEV_PORT : 8984
+  APP_STAGING_PORT : 4341
+  MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.repository/"
+  DOMAIN : "api-ec.phatluu.website"
+stages:
+  - build
+  - build-image
+  - deploy
+
+include:
+  - "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/template/build.maven.gitlab-ci.yml"
+  - "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/template/build.docker.gitlab-ci.yml"
+  - "https://raw.githubusercontent.com/edward313/devops-boilerplate/main/template/deploy.vps.gitlab-ci.yml"
+
+
+  
+
+build-image:
+  before_script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+    - cp -r ./source/target ./devops/
+    - cd devops
+    - wget https://raw.githubusercontent.com/edward313/devops-boilerplate/main/docker/springboot/Dockerfile
+  only:
+    - dev
