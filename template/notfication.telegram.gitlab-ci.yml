@@ -6,7 +6,7 @@ notify_success:
     script:
       - wget https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/notification/notification.sh
       - sh notification.sh "success message "
-    when: on_success
+    when: on_success 
 
 notify_error:
     stage: notify
