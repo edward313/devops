@@ -1,1 +1,1 @@
-bash -c "$(wget -qLO - https:path)"
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/edward313/devops-boilerplate/main/bash-script/config/docker/docker-cleanup/run.sh)"
