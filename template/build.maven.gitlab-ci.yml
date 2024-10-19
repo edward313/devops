@@ -10,10 +10,10 @@ maven-build:
    - cp -r ./devops/config/* ./source/src/main/resources/
    - cd source
    - ls -a
-   - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./src/main/resources/application-dev.properties
-   - sed -i "s/{DB_PASSWORD}/${DB_PASSWORD}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{DB_DATABASE}/${DB_DATABASE}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{HOST}/${HOST}/g" ./src/main/resources/application-dev.properties
+   - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./src/main/resources/application-dev.properties
+   - sed -i "s/{DB_PASSWORD}/${DB_PASSWORD}/g" ./src/main/resources/application-dev.properties
   script: 
    - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{APP_STAGING_PORT}/${APP_STAGING_PORT}/g" ./src/main/resources/application-staging.properties
