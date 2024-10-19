@@ -14,7 +14,7 @@ maven-build:
    - sed -i "s/{HOST}/${HOST}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./src/main/resources/application-dev.properties
    - cat ./src/main/resources/application-dev.properties
-   - sed -i "s/{DB_PASSWORD}/${DB_PASSWORD}/g" ./src/main/resources/application-dev.properties
+   - sed -i "s/{DB_PASS}/${DB_PASS}/g" ./src/main/resources/application-dev.properties
    - cat ./src/main/resources/application-dev.properties
   script: 
    - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./src/main/resources/application-dev.properties
