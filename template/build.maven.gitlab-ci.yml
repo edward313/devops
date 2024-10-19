@@ -5,6 +5,8 @@ maven-build:
     key: maven-cache
     paths: [.repository/]
   before_script:
+   - ls ./devops/config 
+   - ls ./source/src/main/resources
    - cp -r ./devops/config/* ./source/src/main/resources/
    - cd source
    - ls -a
