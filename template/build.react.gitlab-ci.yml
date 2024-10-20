@@ -8,8 +8,8 @@ node-build:
    - cd source
    - ls 
   script: 
-   - npm install --production --force 
-   - npm run build:dev
+   - yarn install
+   - yarn build:dev
   artifacts:
     paths:
       - ./source/build

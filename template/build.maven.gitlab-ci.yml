@@ -5,17 +5,12 @@ maven-build:
     key: maven-cache
     paths: [.repository/]
   before_script:
-   - ls ./devops/config 
-   - ls ./source/src/main/resources
    - cp -r ./devops/config/* ./source/src/main/resources/
    - cd source
-   - ls -a
    - sed -i "s/{DB_DATABASE}/${DB_DATABASE}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{HOST}/${HOST}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./src/main/resources/application-dev.properties
-   - cat ./src/main/resources/application-dev.properties
    - sed -i "s/{DB_KEY}/${DB_KEY}/g" ./src/main/resources/application-dev.properties
-   - cat ./src/main/resources/application-dev.properties
   script: 
    - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./src/main/resources/application-dev.properties
    - cat ./src/main/resources/application-dev.properties
