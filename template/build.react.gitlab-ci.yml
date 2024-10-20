@@ -6,6 +6,7 @@ node-build:
     paths: [.source/node_modules]
   before_script:
    - cd source
+   - ls 
   script: 
    - npm install --production --force 
    - npm run build:dev
