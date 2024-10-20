@@ -1,0 +1,16 @@
+node-build: 
+  image: node:18.20.1-alpine
+  stage: build
+  cache:
+    key: node-cache
+    paths: [.source/node_modules]
+  before_script:
+   - cd source
+  script: 
+   - npm ci
+   - npm run build:dev
+  artifacts:
+    paths:
+      - ./source/build
+  only:
+    - dev
