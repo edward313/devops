@@ -6,7 +6,6 @@ node-build:
     paths: [.source/node_modules]
   before_script:
    - cd source
-   - ls 
   script: 
    - yarn install
    - yarn build:dev
