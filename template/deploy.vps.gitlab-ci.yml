@@ -7,6 +7,6 @@ deploy:
     - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@${HOST} "sudo docker rm -f ${CI_PROJECT_NAME} || true"
     - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@${HOST} "sudo docker rmi \$(docker images -q ${DOCKER_REPO}) || true"
     # deploy
-    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY root@${HOST} "sudo docker container run -d --name ${CI_PROJECT_NAME} -p ${APP_DEV_PORT}:${APP_DEV_PORT} --env SPRING_PROFILES_ACTIVE=dev $IMAGE_NAME:${CI_COMMIT_SHA:0:8}"
+    - ssh -o StrictHostKeyChecking=no -i $MASTER_SSH_KEY ${USERNAME}@${HOST} "sudo docker container run -d --name ${CI_PROJECT_NAME} -p ${APP_DEV_PORT}:${APP_DEV_PORT} --env SPRING_PROFILES_ACTIVE=dev $IMAGE_NAME:${CI_COMMIT_SHA:0:8}"
   only:
     - dev
