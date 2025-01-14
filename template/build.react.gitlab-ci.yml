@@ -7,8 +7,8 @@ node-build:
   before_script:
    - cd source
   script: 
-   - yarn install
-   - yarn build:dev
+   - npm install
+   - npm build:dev
   artifacts:
     paths:
       - ./source/build
