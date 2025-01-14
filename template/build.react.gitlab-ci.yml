@@ -8,7 +8,7 @@ node-build:
    - cd source
   script: 
    - npm install
-   - npm build:dev
+   - npm run build:dev
   artifacts:
     paths:
       - ./source/build
