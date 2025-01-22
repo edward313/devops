@@ -7,13 +7,13 @@ maven-build:
   before_script:
    - cp -r ./devops/config/* ./source/${NAME_FOLDER}/src/main/resources/
    - cd source
-   - sed -i "s/{DB_DATABASE}/${DB_DATABASE}/g" ./src/main/resources/application-dev.properties
-   - sed -i "s/{HOST}/${HOST}/g" ./src/main/resources/application-dev.properties
-   - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./src/main/resources/application-dev.properties
-   - sed -i "s/{DB_KEY}/${DB_KEY}/g" ./src/main/resources/application-dev.properties
+   - sed -i "s/{DB_DATABASE}/${DB_DATABASE}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
+   - sed -i "s/{HOST}/${HOST}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
+   - sed -i "s/{DB_USERNAME}/${DB_USERNAME}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
+   - sed -i "s/{DB_KEY}/${DB_KEY}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
   script: 
-   - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./src/main/resources/application-dev.properties
-   - cat ./src/main/resources/application-dev.properties
+   - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
+   - cat ./${NAME_FOLDER}/src/main/resources/application-dev.properties
    - mvn clean package -Dmaven.test.skip
   artifacts:
     paths:
