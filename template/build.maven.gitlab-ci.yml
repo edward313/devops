@@ -5,7 +5,7 @@ maven-build:
     key: maven-cache
     paths: [.repository/]
   before_script:
-   - cp -r ./devops/config/* ./source/src/main/resources/
+   - cp -r ./devops/config/* ./source/${NAME_FOLDER}/src/main/resources/
    - cd source
    - sed -i "s/{DB_DATABASE}/${DB_DATABASE}/g" ./src/main/resources/application-dev.properties
    - sed -i "s/{HOST}/${HOST}/g" ./src/main/resources/application-dev.properties
