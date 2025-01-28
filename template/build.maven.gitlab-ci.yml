@@ -18,6 +18,6 @@ maven-build:
    - mvn clean package -Dmaven.test.skip
   artifacts:
     paths:
-      - ${NAME_FOLDER}/source/target/*.jar
+      - /source/${NAME_FOLDER}/target/*.jar
   only:
     - dev
