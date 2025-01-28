@@ -15,6 +15,7 @@ maven-build:
    - sed -i "s/{APP_DEV_PORT}/${APP_DEV_PORT}/g" ./${NAME_FOLDER}/src/main/resources/application-dev.properties
    - cd ${NAME_FOLDER}
    - mvn clean package -Dmaven.test.skip
+   
    - ls ./source/${NAME_FOLDER}/target
   artifacts:
     paths:
