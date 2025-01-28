@@ -16,9 +16,9 @@ maven-build:
    - cd ${NAME_FOLDER}
    - mvn clean package -Dmaven.test.skip
 
-   - ls ${CI_PROJECT_DIR}/source/${NAME_FOLDER}/target
+   - ls source/${NAME_FOLDER}/target
   artifacts:
     paths:
-      - ./source/${NAME_FOLDER}/target/*.jar
+      - source/${NAME_FOLDER}/target/*.jar
   only:
     - dev
